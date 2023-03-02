@@ -11,6 +11,7 @@
 		98A27FC729B0F96F00ABF123 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A27FC629B0F96F00ABF123 /* ContentView.swift */; };
 		98A27FC929B0F97200ABF123 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98A27FC829B0F97200ABF123 /* Assets.xcassets */; };
 		98A27FCC29B0F97200ABF123 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98A27FCB29B0F97200ABF123 /* Preview Assets.xcassets */; };
+		98A27FD329B0FAB800ABF123 /* UniversityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A27FD229B0FAB800ABF123 /* UniversityController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,8 @@
 		98A27FC629B0F96F00ABF123 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		98A27FC829B0F97200ABF123 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		98A27FCB29B0F97200ABF123 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		98A27FD229B0FAB800ABF123 /* UniversityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversityController.swift; sourceTree = "<group>"; };
+		98A27FD429B0FF7700ABF123 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +54,10 @@
 		98A27FC329B0F96F00ABF123 /* UniversityList */ = {
 			isa = PBXGroup;
 			children = (
+				98A27FD429B0FF7700ABF123 /* Info.plist */,
 				98A27FC429B0F96F00ABF123 /* UniversityListApp.swift */,
 				98A27FC629B0F96F00ABF123 /* ContentView.swift */,
+				98A27FD229B0FAB800ABF123 /* UniversityController.swift */,
 				98A27FC829B0F97200ABF123 /* Assets.xcassets */,
 				98A27FCA29B0F97200ABF123 /* Preview Content */,
 			);
@@ -139,6 +144,7 @@
 			files = (
 				98A27FC729B0F96F00ABF123 /* ContentView.swift in Sources */,
 				98A27FC529B0F96F00ABF123 /* UniversityListApp.swift in Sources */,
+				98A27FD329B0FAB800ABF123 /* UniversityController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,6 +276,7 @@
 				DEVELOPMENT_TEAM = 46ZCWG7KFN;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = UniversityList/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -299,6 +306,7 @@
 				DEVELOPMENT_TEAM = 46ZCWG7KFN;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = UniversityList/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
