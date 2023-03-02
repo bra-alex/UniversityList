@@ -12,12 +12,12 @@ struct ContentView: View {
     @State private var showDetails = false
     @State private var university: University?
     var body: some View {
-        NavigationStack{
-            ZStack{
+        ZStack{
+            NavigationStack{
                 if !uc.universities.isEmpty{
                     List(uc.universities, id: \.name) { university in
                         Text(university.name)
-                            .padding(.vertical, 7)
+                            .padding(.vertical, 8)
                             .onTapGesture {
                                 self.university = university
                                 showDetails = true
@@ -30,10 +30,12 @@ struct ContentView: View {
                 } else {
                     ProgressView()
                 }
-                
-                if showDetails{
-                    UniversityPopup(showDetails: $showDetails, university: university!)
-                }
+            }
+            .blur(radius: showDetails ? 20 : 0)
+            .animation(.easeIn, value: showDetails)
+            if showDetails{
+                UniversityPopup(showDetails: $showDetails, university: university!)
+                    .transition(AnyTransition.scale.animation(.linear))
             }
         }
         .task {
