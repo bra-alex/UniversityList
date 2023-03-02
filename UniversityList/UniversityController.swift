@@ -10,9 +10,10 @@ import Foundation
 struct University: Codable{
     let name: String
     let state: String?
-    let alphaTwoCode: String
+    let country: String
     let domains: [String]
     let webPages: [String]
+    let alphaTwoCode: String
 }
 
 class UniversityController: ObservableObject{
