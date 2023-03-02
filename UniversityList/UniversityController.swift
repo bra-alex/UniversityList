@@ -14,6 +14,15 @@ struct University: Codable{
     let domains: [String]
     let webPages: [String]
     let alphaTwoCode: String
+    
+    enum CodingKeys: String, CodingKey{
+        case name
+        case state = "state-province"
+        case country
+        case domains
+        case webPages
+        case alphaTwoCode
+    }
 }
 
 class UniversityController: ObservableObject{
