@@ -8,14 +8,24 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject private var uc = UniversityController()
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationStack{
+            if !uc.universities.isEmpty{
+                List(uc.universities, id: \.name) { university in
+                    Text(university.name)
+                        .padding(.vertical, 7)
+                }
+                .listStyle(.plain)
+                .navigationTitle("American Universities")
+                .navigationBarTitleDisplayMode(.inline)
+            } else {
+                ProgressView()
+            }
         }
-        .padding()
+        .task {
+            await uc.loadData()
+        }
     }
 }
 
