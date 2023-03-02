@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct UniversityPopup: View {
-    @Environment(\.dismiss) var dismiss
+    @Binding var showDetails: Bool
     let university: University
     var body: some View {
         ZStack {
@@ -110,13 +110,13 @@ struct UniversityPopup: View {
             .cornerRadius(25)
         }
         .onTapGesture {
-            dismiss()
+            showDetails.toggle()
         }
     }
 }
 
 struct UniversityPopup_Previews: PreviewProvider {
     static var previews: some View {
-        UniversityPopup(university: University(name: "Marywood University", state: nil, country: "United States", domains: ["marywood.edu"], webPages: ["http://www.marywood.edu"], alphaTwoCode: "US"))
+        UniversityPopup(showDetails: .constant(true), university: University(name: "Marywood University", state: nil, country: "United States", domains: ["marywood.edu"], webPages: ["http://www.marywood.edu"], alphaTwoCode: "US"))
     }
 }
