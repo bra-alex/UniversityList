@@ -11,106 +11,113 @@ struct UniversityPopup: View {
     @Binding var showDetails: Bool
     let university: University
     var body: some View {
-        ZStack {
-            Color.black
-                .ignoresSafeArea()
-                .opacity(0.3)
-            VStack {
-                VStack{
-                    Text(university.name)
-                        .fontWeight(.bold)
-                }
-                .foregroundColor(.white)
-                .padding(.vertical)
-                .frame(width: UIScreen.main.bounds.width - 50)
-                .background(.blue)
-                
-                Group{
-                    HStack{
-                        Text("Domains")
+        NavigationStack {
+            ZStack {
+                Color.black
+                    .ignoresSafeArea()
+                    .opacity(0.3)
+                VStack {
+                    VStack{
+                        Text(university.name)
                             .fontWeight(.bold)
-                            .padding(.bottom, 5)
-                        
-                        Spacer()
-                        
-                        VStack {
-                            ForEach(university.domains, id:\.self) { domain in
-                                Text(domain)
-                                    .font(.subheadline)
+                    }
+                    .foregroundColor(.white)
+                    .padding(.vertical)
+                    .frame(width: UIScreen.main.bounds.width - 50)
+                    .background(.blue)
+                    
+                    Group{
+                        HStack{
+                            Text("Domains")
+                                .fontWeight(.bold)
+                                .padding(.bottom, 5)
+                            
+                            Spacer()
+                            
+                            VStack {
+                                ForEach(university.domains, id:\.self) { domain in
+                                    Text(domain)
+                                        .font(.subheadline)
+                                }
                             }
                         }
-                    }
-                    .padding([.horizontal, .top])
-                    
-                    Divider()
-                    
-                    HStack{
-                        Text("Web Pages")
-                            .fontWeight(.bold)
+                        .padding([.horizontal, .top])
                         
-                        Spacer()
+                        Divider()
                         
-                        VStack {
-                            ForEach(university.webPages, id:\.self) { webPage in
-                                Text(webPage)
-                                    .font(.subheadline)
-                            }
-                        }
-                    }
-                    .padding(.horizontal)
-                    
-                    Divider()
-                }
-                
-                Group {
-                    if let state = university.state{
-                        HStack {
-                            Text("State")
+                        HStack{
+                            Text("Web Pages")
                                 .fontWeight(.bold)
                             
                             Spacer()
                             
-                            Text(state)
-                                .font(.subheadline)
+                            VStack {
+                                ForEach(university.webPages, id:\.self) { webPage in
+                                    NavigationLink {
+                                        WebView(urlString: webPage)
+                                    } label: {
+                                        Text(webPage)
+                                            .font(.subheadline)
+                                    }
+
+                                }
+                            }
                         }
                         .padding(.horizontal)
                         
                         Divider()
                     }
                     
-                    HStack {
-                        Text("Country")
-                            .fontWeight(.bold)
+                    Group {
+                        if let state = university.state{
+                            HStack {
+                                Text("State")
+                                    .fontWeight(.bold)
+                                
+                                Spacer()
+                                
+                                Text(state)
+                                    .font(.subheadline)
+                            }
+                            .padding(.horizontal)
+                            
+                            Divider()
+                        }
                         
-                        Spacer()
+                        HStack {
+                            Text("Country")
+                                .fontWeight(.bold)
+                            
+                            Spacer()
+                            
+                            Text(university.country)
+                                .font(.subheadline)
+                        }
+                        .padding(.horizontal)
                         
-                        Text(university.country)
-                            .font(.subheadline)
+                        Divider()
+                        
+                        HStack {
+                            Text("Country Code")
+                                .fontWeight(.bold)
+                            
+                            Spacer()
+                            
+                            Text(university.alphaTwoCode)
+                                .font(.subheadline)
+                        }
+                        .padding([.bottom, .horizontal])
+                        
                     }
-                    .padding(.horizontal)
-                    
-                    Divider()
-                    
-                    HStack {
-                        Text("Country Code")
-                            .fontWeight(.bold)
-                        
-                        Spacer()
-                        
-                        Text(university.alphaTwoCode)
-                            .font(.subheadline)
-                    }
-                    .padding([.bottom, .horizontal])
                     
                 }
-                
+                .frame(width: UIScreen.main.bounds.width - 50)
+                .background(.white)
+                .cornerRadius(25)
             }
-            .frame(width: UIScreen.main.bounds.width - 50)
-            .background(.white)
-            .cornerRadius(25)
+            .onTapGesture {
+                showDetails.toggle()
         }
-        .onTapGesture {
-            showDetails.toggle()
         }
     }
 }
